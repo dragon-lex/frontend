@@ -1,32 +1,63 @@
-
-.in-article-audio {
-    background-color: red;
-}
-
 .inline-audio_container {
     display: flex;
     flex-direction: row;
+    border-left: 4px solid $brightness-7;
 
     .inline-audio_icon {
         width: 100px;
-        flex: auto;
+        height: 100px;
     }
 
     .inline-audio_content {
         flex: auto;
+
         .inline-audio_content_header {
             span.kicker {
                 color: $sport-main;
+                font-weight: 900;
+            }
+            h3 {
+                font-family: $f-serif-headline;
             }
         }
         .inline-audio_content_header,
         .inline-audio_content_player {
-            border: 2px solid grey;
-            border-left: none;
-            border-right: none;
+            padding-left: 6px;
+            border-top: 1px solid $brightness-60;
+            height: 48%;
         }
+        .inline-audio_content_player {
+            border-bottom: 1px solid $brightness-60;
+        }
+
+        .inline-audio_controls {
+            display: flex;
+            flex-direction: row;
+            font-family: $f-sans-serif-text;
+            font-size: 13px;
+            margin-top: 6px;
+
+            .inline-audio_time {
+                position: relative;
+                top: 5px;
+                padding-left: 6px;
+            }
+        }
+
+        .inline-audio_content_progress-bar {
+            cursor: pointer;
+            height: 10px;
+            width: 100%;
+            margin-top: -2px;
+            margin-left: -6px;
+
+            .played {
+                height: 5px;
+                width: 1%;
+                background-color: $highlight-main;
+            }
+        }
+
     }
-
-
 
 }
