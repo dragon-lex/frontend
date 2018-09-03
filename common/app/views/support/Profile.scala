@@ -251,9 +251,9 @@ object ImgSrc extends Logging with implicits.Strings {
       hostPrefixMapping.get(uri.getHost)
         .filter(const(ImageServerSwitch.isSwitchedOn))
         .filter(const(isSupportedImage))
-        .map { imageType =>
-          val signedPath = ImageUrlSigner.sign(s"${uri.getRawPath}$imageType")
-          s"$imageServiceHost/img/$imageType$signedPath"
+        .map { hostPrefix =>
+          val signedPath = ImageUrlSigner.sign(s"${uri.getRawPath}${imageType.resizeString}")
+          s"$imageServiceHost/img/$hostPrefix$signedPath"
         }.getOrElse(url)
     } catch {
       case error: URISyntaxException =>
